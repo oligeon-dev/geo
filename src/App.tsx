@@ -14,22 +14,23 @@ function App() {
     setLongitude(position.coords.longitude);
   };
 
-  useEffect(() => {
-    const getPermissionState = async () => {
-      const permissionState = await navigator.permissions.query({
-        name: "geolocation",
-      });
-      setPermission(permissionState.state);
-      return permissionState;
-    };
+  const getPermissionState = async () => {
+    const permissionState = await navigator.permissions.query({
+      name: "geolocation",
+    });
+    setPermission(permissionState.state);
+    return permissionState;
+  };
 
+  useEffect(() => {
     getPermissionState();
   }, [permission]);
   const errorCallback = () => {};
   return (
     <>
-      <div>version: 0.0.4</div>
+      <div>version: 0.0.5</div>
       <p>permission state: {permission}</p>
+      <button onClick={getPermissionState}>CHECK</button>
       <button onClick={onClick}>位置情報取得</button>
       <div>
         <p>latitude: {latitude}</p>
