@@ -5,6 +5,7 @@ function App() {
   const [latitude, setLatitude] = useState<number>();
   const [longitude, setLongitude] = useState<number>();
   const [permission, setPermission] = useState("");
+
   const onClick = () => {
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
   };
@@ -25,10 +26,12 @@ function App() {
   useEffect(() => {
     getPermissionState();
   }, [permission]);
-  const errorCallback = () => {};
+  const errorCallback = () => {
+    alert("位置情報が利用できません。");
+  };
   return (
     <>
-      <div>version: 0.0.5</div>
+      <div>version: 0.0.6</div>
       <p>permission state: {permission}</p>
       <button onClick={getPermissionState}>CHECK</button>
       <button onClick={onClick}>位置情報取得</button>
