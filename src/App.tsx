@@ -24,11 +24,11 @@ function App() {
     };
 
     getPermissionState();
-  }, []);
+  }, [permission]);
   const errorCallback = () => {};
   return (
     <>
-      <div>version: 0.0.3</div>
+      <div>version: 0.0.4</div>
       <p>permission state: {permission}</p>
       <button onClick={onClick}>位置情報取得</button>
       <div>
