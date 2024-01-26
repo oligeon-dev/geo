@@ -9,6 +9,7 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       manifest: {
+        display: "standalone",
         name: "geo",
         short_name: "geo",
         description: "geo sample",
