@@ -32,7 +32,7 @@ function App() {
   };
   return (
     <>
-      <div>version: 0.0.7</div>
+      <div>version: 0.0.8</div>
       <p>permission state: {permission}</p>
       <button onClick={getPermissionState}>CHECK</button>
       <button onClick={onClick}>位置情報取得</button>
