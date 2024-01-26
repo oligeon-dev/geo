@@ -28,7 +28,7 @@ function App() {
   const errorCallback = () => {};
   return (
     <>
-      <div>version: 0.0.2</div>
+      <div>version: 0.0.3</div>
       <p>permission state: {permission}</p>
       <button onClick={onClick}>位置情報取得</button>
       <div>
