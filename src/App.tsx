@@ -19,7 +19,8 @@ function App() {
     const permissionState = await navigator.permissions.query({
       name: "geolocation",
     });
-    setPermission(permissionState.state);
+    alert(permissionState.state.toString());
+    setPermission(permissionState.state.toString());
     return permissionState;
   };
 
@@ -31,7 +32,7 @@ function App() {
   };
   return (
     <>
-      <div>version: 0.0.6</div>
+      <div>version: 0.0.7</div>
       <p>permission state: {permission}</p>
       <button onClick={getPermissionState}>CHECK</button>
       <button onClick={onClick}>位置情報取得</button>
