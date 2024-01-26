@@ -17,6 +17,7 @@ function App() {
 
   const getPermissionState = async () => {
     navigator.permissions.query({ name: "geolocation" }).then((result) => {
+      console.log("state", result.state);
       if (result.state === "granted") {
         alert("granted");
       } else if (result.state === "prompt") {
@@ -42,7 +43,7 @@ function App() {
   };
   return (
     <>
-      <div>version: 0.0.9</div>
+      <div>version: 0.0.10</div>
       <p>permission state: {permission}</p>
       <button onClick={getPermissionState}>CHECK</button>
       <button onClick={onClick}>位置情報取得</button>
