@@ -16,6 +16,16 @@ function App() {
   };
 
   const getPermissionState = async () => {
+    navigator.permissions.query({ name: "geolocation" }).then((result) => {
+      if (result.state === "granted") {
+        alert("granted");
+      } else if (result.state === "prompt") {
+        alert("prompt");
+      } else {
+        alert("denied");
+      }
+      // パーミッションが拒否された場合は、何もしないでください。
+    });
     const permissionState = await navigator.permissions.query({
       name: "geolocation",
     });
@@ -32,7 +42,7 @@ function App() {
   };
   return (
     <>
-      <div>version: 0.0.8</div>
+      <div>version: 0.0.9</div>
       <p>permission state: {permission}</p>
       <button onClick={getPermissionState}>CHECK</button>
       <button onClick={onClick}>位置情報取得</button>
