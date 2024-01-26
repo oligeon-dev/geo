@@ -15,6 +15,22 @@ function App() {
     setLongitude(position.coords.longitude);
   };
 
+  const errorCallback = (error: GeolocationPositionError) => {
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        alert("位置情報の取得が許可されていません");
+        break;
+      case error.POSITION_UNAVAILABLE:
+        alert("位置情報が取得できませんでした");
+        break;
+      case error.TIMEOUT:
+        alert("タイムアウト");
+        break;
+      default:
+        alert("予期せぬエラー");
+    }
+  };
+
   const getPermissionState = async () => {
     navigator.permissions.query({ name: "geolocation" }).then((result) => {
       console.log("state", result.state);
@@ -38,12 +54,10 @@ function App() {
   useEffect(() => {
     getPermissionState();
   }, [permission]);
-  const errorCallback = () => {
-    alert("位置情報が利用できません。");
-  };
+
   return (
     <>
-      <div>version: 0.0.10</div>
+      <div>version: 0.0.11</div>
       <p>permission state: {permission}</p>
       <button onClick={getPermissionState}>CHECK</button>
       <button onClick={onClick}>位置情報取得</button>
