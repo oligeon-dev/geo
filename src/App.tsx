@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 
 function App() {
   const [latitude, setLatitude] = useState<number>();
   const [longitude, setLongitude] = useState<number>();
-  const [permission, setPermission] = useState("");
+  // const [permission, setPermission] = useState("");
 
   const onClick = () => {
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
@@ -31,35 +31,33 @@ function App() {
     }
   };
 
-  const getPermissionState = async () => {
-    navigator.permissions.query({ name: "geolocation" }).then((result) => {
-      console.log("state", result.state);
-      if (result.state === "granted") {
-        alert("granted");
-      } else if (result.state === "prompt") {
-        alert("prompt");
-      } else {
-        alert("denied");
-      }
-      // パーミッションが拒否された場合は、何もしないでください。
-    });
-    const permissionState = await navigator.permissions.query({
-      name: "geolocation",
-    });
-    alert(permissionState.state.toString());
-    setPermission(permissionState.state.toString());
-    return permissionState;
-  };
+  // const getPermissionState = async () => {
+  //   navigator.permissions.query({ name: "geolocation" }).then((result) => {
+  //     console.log("state", result.state);
+  //     if (result.state === "granted") {
+  //       alert("granted");
+  //     } else if (result.state === "prompt") {
+  //       alert("prompt");
+  //     } else {
+  //       alert("denied");
+  //     }
+  //     // パーミッションが拒否された場合は、何もしないでください。
+  //   });
+  //   const permissionState = await navigator.permissions.query({
+  //     name: "geolocation",
+  //   });
+  //   alert(permissionState.state.toString());
+  //   setPermission(permissionState.state.toString());
+  //   return permissionState;
+  // };
 
-  useEffect(() => {
-    getPermissionState();
-  }, [permission]);
+  // useEffect(() => {
+  //   getPermissionState();
+  // }, [permission]);
 
   return (
     <>
-      <div>version: 0.0.11</div>
-      <p>permission state: {permission}</p>
-      <button onClick={getPermissionState}>CHECK</button>
+      <div>version: 0.0.12</div>
       <button onClick={onClick}>位置情報取得</button>
       <div>
         <p>latitude: {latitude}</p>
