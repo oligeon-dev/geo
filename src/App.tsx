@@ -76,6 +76,9 @@ function App() {
         }}
       />
       <a href={telNumber}>{tel}</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=35.631851%2C139.882814">
+        google map
+      </a>
     </>
   );
 }
