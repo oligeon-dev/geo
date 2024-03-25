@@ -2,34 +2,34 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [latitude, setLatitude] = useState<number>();
-  const [longitude, setLongitude] = useState<number>();
-  // const [permission, setPermission] = useState("");
+  // const [latitude, setLatitude] = useState<number>();
+  // const [longitude, setLongitude] = useState<number>();
+  // // const [permission, setPermission] = useState("");
 
-  const onClick = () => {
-    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-  };
+  // const onClick = () => {
+  //   navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+  // };
 
-  const successCallback = (position: GeolocationPosition) => {
-    setLatitude(position.coords.latitude);
-    setLongitude(position.coords.longitude);
-  };
+  // const successCallback = (position: GeolocationPosition) => {
+  //   setLatitude(position.coords.latitude);
+  //   setLongitude(position.coords.longitude);
+  // };
 
-  const errorCallback = (error: GeolocationPositionError) => {
-    switch (error.code) {
-      case error.PERMISSION_DENIED:
-        alert("位置情報の取得が許可されていません");
-        break;
-      case error.POSITION_UNAVAILABLE:
-        alert("位置情報が取得できませんでした");
-        break;
-      case error.TIMEOUT:
-        alert("タイムアウト");
-        break;
-      default:
-        alert("予期せぬエラー");
-    }
-  };
+  // const errorCallback = (error: GeolocationPositionError) => {
+  //   switch (error.code) {
+  //     case error.PERMISSION_DENIED:
+  //       alert("位置情報の取得が許可されていません");
+  //       break;
+  //     case error.POSITION_UNAVAILABLE:
+  //       alert("位置情報が取得できませんでした");
+  //       break;
+  //     case error.TIMEOUT:
+  //       alert("タイムアウト");
+  //       break;
+  //     default:
+  //       alert("予期せぬエラー");
+  //   }
+  // };
 
   // const getPermissionState = async () => {
   //   navigator.permissions.query({ name: "geolocation" }).then((result) => {
