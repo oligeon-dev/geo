@@ -54,15 +54,28 @@ function App() {
   // useEffect(() => {
   //   getPermissionState();
   // }, [permission]);
+  const [tel, setTel] = useState("");
+  const telNumber = `tel:${tel}`;
 
   return (
     <>
-      <div>version: 0.0.12</div>
-      <button onClick={onClick}>位置情報取得</button>
+      <div>version: 0.0.13</div>
+      {/* <button onClick={onClick}>位置情報取得</button>
       <div>
         <p>latitude: {latitude}</p>
         <p>longitude: {longitude}</p>
-      </div>
+      </div> */}
+      <button onClick={() => window.confirm("テキストテキストテキスト")}>
+        show alert
+      </button>
+      <input
+        type="text"
+        value={tel}
+        onChange={(e) => {
+          setTel(e.target.value);
+        }}
+      />
+      <a href={telNumber}>{tel}</a>
     </>
   );
 }
