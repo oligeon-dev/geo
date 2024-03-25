@@ -59,7 +59,7 @@ function App() {
 
   return (
     <>
-      <div>version: 0.0.13</div>
+      <div>version: 0.0.14</div>
       {/* <button onClick={onClick}>位置情報取得</button>
       <div>
         <p>latitude: {latitude}</p>
@@ -76,7 +76,10 @@ function App() {
         }}
       />
       <a href={telNumber}>{tel}</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=35.631851%2C139.882814">
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=35.631851%2C139.882814"
+        target="_blank"
+      >
         google map
       </a>
     </>
