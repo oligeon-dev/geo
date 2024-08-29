@@ -82,6 +82,9 @@ function App() {
       >
         google map
       </a>
+      <a href="https://www.google.co.jp/" target="_blank">
+        Google Q
+      </a>
     </>
   );
 }
